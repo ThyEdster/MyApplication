@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PatientDashBoardActivity">
+
+    <TextView
+        android:id="@+id/doctorWelcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome, Patient!"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <RadioGroup
+        android:id="@+id/signInRegisterRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/doctorWelcomeText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/signInRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign In"/>
+
+        <RadioButton
+            android:id="@+id/registerRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"/>
+    </RadioGroup>
+
+    <!-- Login UI Elements -->
+    <LinearLayout
+        android:id="@+id/loginSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/signInRegisterRadioGroup">
+        <!-- Login widgets go here -->
+        <!-- Example: -->
+        <EditText
+            android:id="@+id/patientIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Patient ID" />
+
+        <EditText
+            android:id="@+id/patientSsnEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="SSN" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login" />
+    </LinearLayout>
+
+    <!-- Registration UI Elements (Initially hidden) -->
+    <LinearLayout
+        android:id="@+id/registrationSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/signInRegisterRadioGroup">
+        <!-- Registration widgets go here -->
+        <!-- Example: -->
+        <EditText
+            android:id="@+id/patientNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name" />
+
+        <EditText
+            android:id="@+id/patientNewSsnEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="SSN" />
+
+        <EditText
+            android:id="@+id/patientNewIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Patient ID" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
