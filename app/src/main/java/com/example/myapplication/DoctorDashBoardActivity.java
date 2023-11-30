@@ -10,8 +10,8 @@ import android.widget.Button;
 public class DoctorDashBoardActivity extends AppCompatActivity {
 
     private RadioGroup signInRegisterRadioGroup;
-    private EditText doctorIdEditText, doctorSsnEditText;  // Login UI Elements
-    private EditText doctorNameEditText, doctorSpecialtyEditText; // Registration UI Elements
+    private EditText doctorIdEditText, doctorSsnEditText; // Login UI Elements
+    private EditText doctorRegistrationNameEditText, doctorRegistrationSpecialtyEditText; // Registration UI Elements
     private Button loginButton, registerButton;
 
     @Override
@@ -19,16 +19,16 @@ public class DoctorDashBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_dash_board);
 
-        // Find UI elements by ID
+        // Initialize views
         signInRegisterRadioGroup = findViewById(R.id.signInRegisterRadioGroup);
         doctorIdEditText = findViewById(R.id.doctorIdEditText);
         doctorSsnEditText = findViewById(R.id.doctorSsnEditText);
-        doctorNameEditText = findViewById(R.id.doctorNameEditText);
-        doctorSpecialtyEditText = findViewById(R.id.doctorSpecialtyEditText);
+        doctorRegistrationNameEditText = findViewById(R.id.doctorRegistrationNameEditText); // Updated ID
+        doctorRegistrationSpecialtyEditText = findViewById(R.id.doctorRegistrationSpecialtyEditText); // Updated ID
         loginButton = findViewById(R.id.loginButton);
         registerButton = findViewById(R.id.registerButton);
 
-        // Set up the listener for the RadioGroup
+        // Set up the RadioGroup listener
         signInRegisterRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -38,8 +38,8 @@ public class DoctorDashBoardActivity extends AppCompatActivity {
                     doctorSsnEditText.setVisibility(View.VISIBLE);
                     loginButton.setVisibility(View.VISIBLE);
 
-                    doctorNameEditText.setVisibility(View.GONE);
-                    doctorSpecialtyEditText.setVisibility(View.GONE);
+                    doctorRegistrationNameEditText.setVisibility(View.GONE);
+                    doctorRegistrationSpecialtyEditText.setVisibility(View.GONE);
                     registerButton.setVisibility(View.GONE);
                 } else if (checkedId == R.id.registerRadioButton) {
                     // Show registration UI elements, hide login UI elements
@@ -47,8 +47,8 @@ public class DoctorDashBoardActivity extends AppCompatActivity {
                     doctorSsnEditText.setVisibility(View.GONE);
                     loginButton.setVisibility(View.GONE);
 
-                    doctorNameEditText.setVisibility(View.VISIBLE);
-                    doctorSpecialtyEditText.setVisibility(View.VISIBLE);
+                    doctorRegistrationNameEditText.setVisibility(View.VISIBLE);
+                    doctorRegistrationSpecialtyEditText.setVisibility(View.VISIBLE);
                     registerButton.setVisibility(View.VISIBLE);
                 }
             }

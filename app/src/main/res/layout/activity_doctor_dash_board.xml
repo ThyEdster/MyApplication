@@ -6,23 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".DoctorDashBoardActivity">
 
-
     <!-- Welcome Text -->
-
-    <!-- Sign-in/Registration Radio Group -->
     <TextView
         android:id="@+id/doctorWelcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:text="Welcome, Doctor!"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.048" />
 
+    <!-- Sign-in/Registration Radio Group -->
     <RadioGroup
         android:id="@+id/signInRegisterRadioGroup"
         android:layout_width="wrap_content"
@@ -47,7 +43,7 @@
             android:text="Register" />
     </RadioGroup>
 
-    <!-- Login UI Elements (Initially visible) -->
+    <!-- Login UI Elements -->
     <EditText
         android:id="@+id/doctorIdEditText"
         android:layout_width="match_parent"
@@ -56,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signInRegisterRadioGroup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="42dp" />
+        android:layout_marginTop="16dp" />
 
     <EditText
         android:id="@+id/doctorSsnEditText"
@@ -66,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/doctorIdEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/loginButton"
@@ -80,7 +76,7 @@
 
     <!-- Registration UI Elements (Initially hidden) -->
     <EditText
-        android:id="@+id/doctorNameEditText"
+        android:id="@+id/doctorRegistrationNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
@@ -91,15 +87,26 @@
         android:layout_marginTop="16dp" />
 
     <EditText
-        android:id="@+id/doctorSpecialtyEditText"
+        android:id="@+id/doctorIdRegistrationEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Doctor ID"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/doctorRegistrationNameEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/doctorRegistrationSpecialtyEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Specialty"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/doctorNameEditText"
+        app:layout_constraintTop_toBottomOf="@+id/doctorIdRegistrationEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/registerButton"
@@ -107,11 +114,8 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/doctorSpecialtyEditText"
+        app:layout_constraintTop_toBottomOf="@+id/doctorRegistrationSpecialtyEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
