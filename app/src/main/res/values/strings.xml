@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">My Application</string>
+
+    <!-- Doctor Strings -->
+    <string name="doctor_sign_in">Sign In</string>
+    <string name="doctor_register">Register</string>
+    <string name="doctor_id_login">Doctor ID</string>
+    <string name="doctor_ssn_login">Doctor SSN</string>
+    <string name="doctor_name_register">Doctor Name</string>
+    <string name="doctor_specialty_register">Specialty</string>
+    <string name="doctor_id_register">Doctor ID</string>
+    <string name="doctor_ssn_register">SSN</string>
+
+    <!-- Patient Strings -->
+    <string name="patient_sign_in">Sign In</string>
+    <string name="patient_register">Register</string>
+    <string name="patient_id_login">Patient ID</string>
+    <string name="patient_ssn_login">Patient SSN</string>
+    <string name="patient_name_register">Patient Name</string>
+    <string name="patient_ssn_register">SSN</string>
+    <string name="patient_id_register">Patient ID</string>
+
+    <!-- doctor buttons -->
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <!-- patient buttons -->
+    <string name="patient_login">Login</string>
 </resources>

@@ -30,13 +30,13 @@
             android:id="@+id/signInRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign In"/>
+            android:text="@string/patient_sign_in"/>
 
         <RadioButton
             android:id="@+id/registerRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"/>
+            android:text="@string/patient_register"/>
     </RadioGroup>
 
     <!-- Login UI Elements -->
@@ -53,19 +53,19 @@
             android:id="@+id/patientIdEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Patient ID" />
+            android:hint="@string/patient_id_login" />
 
         <EditText
             android:id="@+id/patientSsnEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="SSN" />
+            android:hint="@string/patient_ssn_login" />
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:text="@string/patient_login" />
     </LinearLayout>
 
     <!-- Registration UI Elements (Initially hidden) -->
@@ -82,19 +82,19 @@
             android:id="@+id/patientNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:hint="@string/patient_name_register" />
 
         <EditText
             android:id="@+id/patientNewSsnEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="SSN" />
+            android:hint="@string/patient_ssn_register" />
 
         <EditText
             android:id="@+id/patientNewIdEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Patient ID" />
+            android:hint="@string/patient_id_register" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

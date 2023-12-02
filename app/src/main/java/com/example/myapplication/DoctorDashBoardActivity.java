@@ -4,15 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Button;
 
 public class DoctorDashBoardActivity extends AppCompatActivity {
 
     private RadioGroup signInRegisterRadioGroup;
+    private LinearLayout loginSection, registrationSection; // Added LinearLayout for sections
     private EditText doctorIdEditText, doctorSsnEditText; // Login UI Elements
     private EditText doctorRegistrationNameEditText, doctorRegistrationSpecialtyEditText;
-    private EditText doctorRegistrationIdEditText, doctorRegistrationSsnEditText;// Registration UI Elements
+    private EditText doctorRegistrationIdEditText, doctorRegistrationSsnEditText; // Registration UI Elements
     private Button loginButton, registerButton;
 
     @Override
@@ -20,15 +22,22 @@ public class DoctorDashBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_dash_board);
 
-        // Initialize views
+        // Initialize views for RadioGroup and Buttons
         signInRegisterRadioGroup = findViewById(R.id.signInRegisterRadioGroup);
-        doctorIdEditText = findViewById(R.id.doctorIdEditText);
-        doctorSsnEditText = findViewById(R.id.doctorSsnEditText);
-        doctorRegistrationNameEditText = findViewById(R.id.doctorRegistrationNameEditText); // Updated ID
-        doctorRegistrationSpecialtyEditText = findViewById(R.id.doctorRegistrationSpecialtyEditText); // Updated ID
         loginButton = findViewById(R.id.loginButton);
         registerButton = findViewById(R.id.registerButton);
-        // Initialize new EditText views
+
+        // Initialize LinearLayout sections
+        loginSection = findViewById(R.id.loginSection);
+        registrationSection = findViewById(R.id.registrationSection);
+
+        // Initialize EditText views for login
+        doctorIdEditText = findViewById(R.id.doctorIdEditText);
+        doctorSsnEditText = findViewById(R.id.doctorSsnEditText);
+
+        // Initialize EditText views for registration
+        doctorRegistrationNameEditText = findViewById(R.id.doctorRegistrationNameEditText);
+        doctorRegistrationSpecialtyEditText = findViewById(R.id.doctorRegistrationSpecialtyEditText);
         doctorRegistrationIdEditText = findViewById(R.id.doctorRegistrationIdEditText);
         doctorRegistrationSsnEditText = findViewById(R.id.doctorRegistrationSsnEditText);
 
@@ -37,32 +46,13 @@ public class DoctorDashBoardActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.signInRadioButton) {
-                    // Sign-in view
-                    doctorIdEditText.setVisibility(View.VISIBLE);
-                    doctorSsnEditText.setVisibility(View.VISIBLE);
-                    loginButton.setVisibility(View.VISIBLE);
-
-                    doctorRegistrationNameEditText.setVisibility(View.GONE);
-                    doctorRegistrationSpecialtyEditText.setVisibility(View.GONE);
-                    // Add these lines
-                    doctorRegistrationIdEditText.setVisibility(View.GONE);
-                    doctorRegistrationSsnEditText.setVisibility(View.GONE);
-                    registerButton.setVisibility(View.GONE);
+                    loginSection.setVisibility(View.VISIBLE);
+                    registrationSection.setVisibility(View.GONE);
                 } else if (checkedId == R.id.registerRadioButton) {
-                    // Registration view
-                    doctorIdEditText.setVisibility(View.GONE);
-                    doctorSsnEditText.setVisibility(View.GONE);
-                    loginButton.setVisibility(View.GONE);
-
-                    doctorRegistrationNameEditText.setVisibility(View.VISIBLE);
-                    doctorRegistrationSpecialtyEditText.setVisibility(View.VISIBLE);
-                    // Add these lines
-                    doctorRegistrationIdEditText.setVisibility(View.VISIBLE);
-                    doctorRegistrationSsnEditText.setVisibility(View.VISIBLE);
-                    registerButton.setVisibility(View.VISIBLE);
+                    registrationSection.setVisibility(View.VISIBLE);
+                    loginSection.setVisibility(View.GONE);
                 }
             }
-
         });
     }
 }
