@@ -37,11 +37,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if (selectedId == doctorRadioButton.getId()) {
                     // Start the DoctorDashboardActivity
-                    Intent intent = new Intent(MainActivity.this, DoctorDashBoardActivity.class);
+                    Intent intent = new Intent(MainActivity.this, DoctorDashboardActivity.class);
                     startActivity(intent);
                 } else if (selectedId == patientRadioButton.getId()) {
                     // Start the PatientDashboardActivity
-                    Intent intent = new Intent(MainActivity.this, PatientDashBoardActivity.class);
+                    Intent intent = new Intent(MainActivity.this, PatientDashboardActivity.class);
                     startActivity(intent);
                 } else {
                     // No selection made

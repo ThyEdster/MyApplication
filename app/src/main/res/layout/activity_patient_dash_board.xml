@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PatientDashBoardActivity">
+    tools:context="com.example.myapplication.PatientDashboardActivity">
 
     <TextView
         android:id="@+id/doctorWelcomeText"
@@ -76,8 +76,8 @@
         android:visibility="gone"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/signInRegisterRadioGroup">
+
         <!-- Registration widgets go here -->
-        <!-- Example: -->
         <EditText
             android:id="@+id/patientNameEditText"
             android:layout_width="match_parent"
@@ -95,6 +95,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/patient_id_register" />
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/patient_register" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

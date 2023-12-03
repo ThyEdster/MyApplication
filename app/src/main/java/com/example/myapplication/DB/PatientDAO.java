@@ -1,16 +1,15 @@
 package com.example.myapplication.DB;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.Query;
+import java.util.List;
 
-@Entity(tableName = "patient")
-public class PatientDAO {
-    @PrimaryKey(autoGenerate = true)
-    public int id;
+@Dao
+public interface PatientDAO {
+    @Insert
+    void insert(Patient patient);
 
-    public String patientId;
-    public String name;
-    public String ssn;
-
-    // Add getters and setters or use public fields
+    @Query("SELECT * FROM patients")
+    List<Patient> getAllPatients();
 }

@@ -20,9 +20,9 @@
     <string name="patient_ssn_register">SSN</string>
     <string name="patient_id_register">Patient ID</string>
 
-    <!-- doctor buttons -->
+    <!-- Doctor Buttons -->
     <string name="login">Login</string>
     <string name="register">Register</string>
-    <!-- patient buttons -->
+    <!-- Patient Buttons -->
     <string name="patient_login">Login</string>
 </resources>
