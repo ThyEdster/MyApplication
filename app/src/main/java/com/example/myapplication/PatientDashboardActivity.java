@@ -88,7 +88,7 @@ public class PatientDashboardActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Handle the login logic
+                // todo Handle the login logic
             }
         });
 
@@ -114,7 +114,7 @@ public class PatientDashboardActivity extends AppCompatActivity {
             @Override
             public void run() {
                 patientDao.insert(newPatient);
-                // Consider adding some form of confirmation or error handling here
+                // todo Consider adding some form of confirmation or error handling here
             }
         }).start();
     }

@@ -17,9 +17,9 @@ public class DoctorDashboardActivity extends AppCompatActivity {
 
     private RadioGroup signInRegisterRadioGroup;
     private LinearLayout loginSection, registrationSection;
-    private EditText doctorIdEditText, doctorSsnEditText; // Login UI Elements
+    private EditText doctorIdEditText, doctorSsnEditText;
     private EditText doctorRegistrationNameEditText, doctorRegistrationSpecialtyEditText;
-    private EditText doctorRegistrationIdEditText, doctorRegistrationSsnEditText; // Registration UI Elements
+    private EditText doctorRegistrationIdEditText, doctorRegistrationSsnEditText;
     private Button loginButton, registerButton;
 
     // Room Database Instance
@@ -90,7 +90,7 @@ public class DoctorDashboardActivity extends AppCompatActivity {
             }
         });
 
-        // Add similar OnClickListener for loginButton if needed
+        // todo Add similar OnClickListener for loginButton if needed
     }
 
     private void registerDoctor() {
@@ -106,7 +106,7 @@ public class DoctorDashboardActivity extends AppCompatActivity {
             @Override
             public void run() {
                 doctorDao.insert(newDoctor);
-                // Consider adding some form of confirmation or error handling here
+                // todo Consider adding some form of confirmation or error handling here
             }
         }).start();
     }
