@@ -7,6 +7,7 @@ import java.util.List;
 
 @Dao
 public interface DoctorDAO {
+
     @Insert
     void insert(Doctor doctor);
 

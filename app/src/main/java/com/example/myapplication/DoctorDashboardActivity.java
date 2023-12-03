@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -33,6 +35,7 @@ public class DoctorDashboardActivity extends AppCompatActivity {
 
         // Initialize views
         initializeViews();
+
 
         // Initialize Room Database and DAO
         db = Room.databaseBuilder(getApplicationContext(),
@@ -90,7 +93,25 @@ public class DoctorDashboardActivity extends AppCompatActivity {
             }
         });
 
-        // todo Add similar OnClickListener for loginButton if needed
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loginDoctor();
+            }
+        });
+    }
+
+    private void loginDoctor() {
+        String doctorId = doctorIdEditText.getText().toString();
+        String doctorSsn = doctorSsnEditText.getText().toString();
+
+        // Perform login validation and navigate to Doctor's Main Page
+        // TODO: Implement authentication logic here
+
+        // For demonstration, assuming login is successful
+        Intent intent = new Intent(DoctorDashboardActivity.this, DoctorLandingPageActivity.class);
+        intent.putExtra("DOCTOR_ID", doctorId);
+        startActivity(intent);
     }
 
     private void registerDoctor() {
