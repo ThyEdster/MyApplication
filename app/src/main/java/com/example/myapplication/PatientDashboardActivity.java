@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -88,7 +90,14 @@ public class PatientDashboardActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // todo Handle the login logic
+                loginPatient();
+            }
+        });
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registerPatient();
             }
         });
 
@@ -99,6 +108,19 @@ public class PatientDashboardActivity extends AppCompatActivity {
                 registerPatient();
             }
         });
+    }
+
+    private void loginPatient() {
+        String patientId = patientIdEditText.getText().toString();
+        String patientSsn = patientSsnEditText.getText().toString();
+
+        // Perform login validation and navigate to Patient's Main Page
+        // TODO: Implement authentication logic here
+
+        // For demonstration, assuming login is successful
+        Intent intent = new Intent(PatientDashboardActivity.this, PatientLandingPageActivity.class);
+        intent.putExtra("PATIENT_ID", patientId);
+        startActivity(intent);
     }
 
 
