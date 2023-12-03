@@ -139,6 +139,7 @@ public class PatientDashboardActivity extends AppCompatActivity {
                 // todo Consider adding some form of confirmation or error handling here
             }
         }).start();
+
     }
 
 
