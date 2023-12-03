@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup userTypeRadioGroup;
     private RadioButton doctorRadioButton;
     private RadioButton patientRadioButton;
+    private RadioButton adminRadioButton;
     private Button loginButton;
 
     @Override
@@ -27,24 +28,24 @@ public class MainActivity extends AppCompatActivity {
         userTypeRadioGroup = findViewById(R.id.userTypeRadioGroup);
         doctorRadioButton = findViewById(R.id.doctorRadioButton);
         patientRadioButton = findViewById(R.id.patientRadioButton);
+        adminRadioButton = findViewById(R.id.adminRadioButton);
         loginButton = findViewById(R.id.loginButton);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Check which radio button was selected
                 int selectedId = userTypeRadioGroup.getCheckedRadioButtonId();
 
                 if (selectedId == doctorRadioButton.getId()) {
-                    // Start the DoctorDashboardActivity
                     Intent intent = new Intent(MainActivity.this, DoctorDashboardActivity.class);
                     startActivity(intent);
                 } else if (selectedId == patientRadioButton.getId()) {
-                    // Start the PatientDashboardActivity
                     Intent intent = new Intent(MainActivity.this, PatientDashboardActivity.class);
                     startActivity(intent);
+                } else if (selectedId == adminRadioButton.getId()) {
+                    Intent intent = new Intent(MainActivity.this, AdministratorDashboardActivity.class);
+                    startActivity(intent);
                 } else {
-                    // No selection made
                     Toast.makeText(MainActivity.this, "Please select a user type", Toast.LENGTH_SHORT).show();
                 }
             }
