@@ -13,4 +13,6 @@ public interface DoctorDAO {
 
     @Query("SELECT * FROM doctors")
     List<Doctor> getAllDoctors();
+    @Query("SELECT * FROM doctors WHERE doctorId = :id AND ssn = :ssn")
+    Doctor findByIdAndSsn(String id, String ssn);
 }

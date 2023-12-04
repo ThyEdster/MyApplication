@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.room.Room;
 
 import com.example.myapplication.DB.AppDatabase;
@@ -105,13 +107,27 @@ public class DoctorDashboardActivity extends AppCompatActivity {
         String doctorId = doctorIdEditText.getText().toString();
         String doctorSsn = doctorSsnEditText.getText().toString();
 
-        // Perform login validation and navigate to Doctor's Main Page
-        // TODO: Implement authentication logic here
-
-        // For demonstration, assuming login is successful
-        Intent intent = new Intent(DoctorDashboardActivity.this, DoctorLandingPageActivity.class);
-        intent.putExtra("DOCTOR_ID", doctorId);
-        startActivity(intent);
+        // Authentication logic
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Doctor doctor = doctorDao.findByIdAndSsn(doctorId, doctorSsn);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (doctor != null) {
+                            // Login successful
+                            Intent intent = new Intent(DoctorDashboardActivity.this, DoctorLandingPageActivity.class);
+                            intent.putExtra("DOCTOR_ID", doctorId);
+                            startActivity(intent);
+                        } else {
+                            // Login failed
+                            Toast.makeText(DoctorDashboardActivity.this, "Invalid ID or SSN", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 
     private void registerDoctor() {
@@ -126,11 +142,24 @@ public class DoctorDashboardActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                doctorDao.insert(newDoctor);
-                // todo Consider adding some form of confirmation or error handling here
+                try {
+                    doctorDao.insert(newDoctor);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(DoctorDashboardActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } catch (Exception e) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(DoctorDashboardActivity.this, "Registration failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
         }).start();
     }
-
 
 }

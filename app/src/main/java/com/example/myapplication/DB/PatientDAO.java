@@ -12,4 +12,7 @@ public interface PatientDAO {
 
     @Query("SELECT * FROM patients")
     List<Patient> getAllPatients();
+
+    @Query("SELECT * FROM patients WHERE patientId = :id AND ssn = :ssn")
+    Patient findByIdAndSsn(String id, String ssn);
 }
